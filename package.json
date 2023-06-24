@@ -1,0 +1,26 @@
+{
+  "name": "create-react-smth-app",
+  "version": "2.7.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "react-smth-app"
+  ],
+  "author": "imxkhm@gmail.com",
+  "license": "ISC",
+  "description": "A simple and perfect react scaffolding",
+  "main": "index.js",
+  "bin": {
+    "create-react-smth-app": "./index.js"
+  },
+  "files": [
+    "template/**/*"
+  ],
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^11.1.1",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2"
+  }
+}
