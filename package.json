@@ -1,6 +1,6 @@
 {
   "name": "create-react-smth-app",
-  "version": "2.7.0",
+  "version": "2.9.0",
   "private": false,
   "type": "module",
   "keywords": [
@@ -11,11 +11,23 @@
   "description": "A simple and perfect react scaffolding",
   "main": "index.js",
   "bin": {
-    "create-react-smth-app": "./index.js"
+    "create-react-smth-app": "./index.js",
+    "crsa": "./index.js"
   },
   "files": [
     "template/**/*"
   ],
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukiyukixing/create-react-smth-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yukiyukixing/create-react-smth-app/issues"
+  },
+  "homepage": "https://github.com/yukiyukixing/create-react-smth-app/blob/main/README.md",
   "dependencies": {
     "colors": "^1.4.0",
     "cross-spawn": "^7.0.3",

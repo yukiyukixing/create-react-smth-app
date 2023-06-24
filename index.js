@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import prompts from 'prompts';
 import colors from 'colors';
+import { exec } from 'child_process';
 
 const BUILD_TOOLS = [
   {
@@ -27,7 +28,8 @@ const BUILD_TOOLS = [
     {
       type: 'text',
       name: 'projectName',
-      message: 'What is your project name?',
+      message: 'Project name:',
+      initial: 'my-react-smth-project' // 设置默认项目名称
     },
     {
       type: 'select',
