@@ -1,11 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const resolvePath = (...segments) => path.resolve(__dirname, ...segments)
+
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: resolvePath('src', 'index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: resolvePath('dist'),
     filename: 'bundle.js',
   },
   module: {
@@ -15,19 +17,38 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'images',
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    alias: {
+      '@': resolvePath('src'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public', 'index.html'),
+      template: resolvePath('public', 'index.html'),
     }),
   ],
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'public'),
+      directory: resolvePath('public'),
     },
     hot: true,
   },
