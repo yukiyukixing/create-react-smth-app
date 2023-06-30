@@ -1,11 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const webpackBar = require('webpackbar')
 const resolvePath = (...segments) => path.resolve(__dirname, ...segments)
 
 module.exports = {
   mode: 'development',
   entry: resolvePath('src', 'index.js'),
+  stats: 'errors-warnings',
   output: {
     path: resolvePath('dist'),
     filename: 'bundle.js',
@@ -45,6 +46,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: resolvePath('public', 'index.html'),
     }),
+    new webpackBar(),
   ],
   devServer: {
     static: {
